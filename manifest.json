@@ -13,6 +13,7 @@
         "navegación en línea",
         "optimización de búsqueda"
     ],
+    "icons": [{ "src": "/favicon.ico", "type": "image/x-icon", "sizes": "32x32" }],
     "author": "Jeremy Díaz",
     "repository": {
         "type": "git",

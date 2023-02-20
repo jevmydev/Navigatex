@@ -1,5 +1,14 @@
 export function FavIcon() {
-    return <img className="rounded-full aspect-square w-12 h-12 min-w-fit" src="./favicon.ico" alt="NavigateX logo" decoding="async" />;
+    return (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <circle cx="12" cy="12" r="9" />
+            <line x1="3.6" y1="9" x2="20.4" y2="9" />
+            <line x1="3.6" y1="15" x2="20.4" y2="15" />
+            <path d="M11.5 3a17 17 0 0 0 0 18" />
+            <path d="M12.5 3a17 17 0 0 1 0 18" />
+        </svg>
+    );
 }
 
 export function SettingIcon() {
