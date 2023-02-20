@@ -1,23 +1,32 @@
+import { useRef } from "react";
+
 import Header from "./components/Header";
 import Searcher from "./components/Searcher";
 import { SearcherForm } from "./components/Searcher";
 import Response from "./components/Response";
 import Footer from "./components/Footer";
 
+import { Loading } from "./elements/Loading";
+
 import { useSearch } from "./hooks/useSearch";
 import { useResponseIA } from "./hooks/useResponseIA";
 
 function App() {
-    const { search, updateSearch } = useSearch();
-    const { response, getResponse } = useResponseIA({ search });
+    const { search, searchSubmit, updateSearch } = useSearch();
+    const { response, loading, getResponse } = useResponseIA({ search });
+    const isFirstRender = useRef(true);
 
     const handleChange = (e) => {
-        const newSearch = e.target.value;
-        updateSearch({ search: newSearch });
+        const search = e.target.value;
+        updateSearch({ search });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        searchSubmit.current = search;
+        isFirstRender.current = false;
+
         getResponse({ search });
     };
 
@@ -29,7 +38,7 @@ function App() {
                     <Searcher>
                         <SearcherForm search={search} handleChange={handleChange} handleSubmit={handleSubmit} />
                     </Searcher>
-                    <Response titleQuestion={search} response={response} />
+                    {loading ? <Loading /> : <Response isFirstRender={isFirstRender.current} question={searchSubmit.current} response={response} />}
                 </div>
             </main>
             <Footer />
