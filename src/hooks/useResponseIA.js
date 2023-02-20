@@ -2,21 +2,24 @@ import { useState, useCallback, useRef } from "react";
 import { responseIA } from "../services/responseIA";
 
 export function useResponseIA({ search }) {
-    const [response, setResponse] = useState({ choices: [{ text: "" }] });
+    const [response, setResponse] = useState(null);
+    const [loading, setLoading] = useState(false);
     const previusSearch = useRef(search);
 
     const getResponse = useCallback(async ({ search }) => {
         if (search === previusSearch.current) return;
 
-        /* LOADING */
+        setLoading(true);
 
         previusSearch.current = search;
 
-        const newResponse = await responseIA({ search });
+        const formattedSearch = search.trim();
+        const newResponse = await responseIA({ search: formattedSearch });
+
         setResponse(newResponse);
 
-        /* REMOVE LOADING */
+        setLoading(false);
     }, []);
 
-    return { response, getResponse };
+    return { response, loading, getResponse };
 }
