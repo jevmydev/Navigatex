@@ -12,5 +12,10 @@ export function useSearch() {
         setSearch(search);
     };
 
-    return { search, searchSubmit, updateSearch };
+    const handleChange = (e) => {
+        const search = e.target.value;
+        updateSearch({ search });
+    };
+
+    return { search, searchSubmit, handleChange };
 }

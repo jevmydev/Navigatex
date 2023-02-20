@@ -12,14 +12,9 @@ import { useSearch } from "./hooks/useSearch";
 import { useResponseIA } from "./hooks/useResponseIA";
 
 function App() {
-    const { search, searchSubmit, updateSearch } = useSearch();
+    const { search, searchSubmit, handleChange } = useSearch();
     const { response, error, loading, getResponse } = useResponseIA({ search });
     const isFirstRender = useRef(true);
-
-    const handleChange = (e) => {
-        const search = e.target.value;
-        updateSearch({ search });
-    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
