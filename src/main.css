@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-Light.ttf") format("truetype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-Medium.ttf") format("truetype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+input[type="search"]::-ms-clear,
+input[type="search"]::-ms-reveal {
+    display: none;
+}
+
+.input-degraded-pulse {
+    animation: input-degraded-pulse 2s linear infinite;
+}
+
+@keyframes input-degraded-pulse {
+    0%,
+    100% {
+        filter: hue-rotate(20deg) opacity(1);
+    }
+    50% {
+        filter: hue-rotate(20deg) opacity(0.5);
+    }
+    100% {
+        filter: hue-rotate(20deg);
+    }
+}

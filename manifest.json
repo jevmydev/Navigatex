@@ -1,0 +1,26 @@
+{
+    "name": "NavigateX - Navega lo que necesites",
+    "short_name": "NavigateX",
+    "description": "Encuentra lo que necesitas de la web rápidamente con NavigateX. Este buscador utiliza inteligencia artificial para brindar resultados precisos y relevantes para tus búsquedas.",
+    "keywords": [
+        "navigatex",
+        "buscador",
+        "explorador web",
+        "inteligencia artificial",
+        "resultados de búsqueda",
+        "encontrar información",
+        "tecnología de búsqueda",
+        "navegación en línea",
+        "optimización de búsqueda"
+    ],
+    "author": "Jeremy Díaz",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jevmydev/navigatex.git"
+    },
+    "bugs": {
+        "url": "https://github.com/jevmydev/navigatex/issues"
+    },
+    "start_url": "./index.html",
+    "homepage": "https://navigatex.netlify.app/"
+}
