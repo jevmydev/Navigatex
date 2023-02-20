@@ -13,7 +13,7 @@ import { useResponseIA } from "./hooks/useResponseIA";
 
 function App() {
     const { search, searchSubmit, updateSearch } = useSearch();
-    const { response, loading, getResponse } = useResponseIA({ search });
+    const { response, error, loading, getResponse } = useResponseIA({ search });
     const isFirstRender = useRef(true);
 
     const handleChange = (e) => {
@@ -38,7 +38,7 @@ function App() {
                     <Searcher>
                         <SearcherForm search={search} handleChange={handleChange} handleSubmit={handleSubmit} />
                     </Searcher>
-                    {loading ? <Loading /> : <Response isFirstRender={isFirstRender.current} question={searchSubmit.current} response={response} />}
+                    {loading ? <Loading /> : <Response isFirstRender={isFirstRender.current} question={searchSubmit.current} response={response} error={error} />}
                 </div>
             </main>
             <Footer />

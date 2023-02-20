@@ -42,11 +42,11 @@ export function ResponseError({ isFirstRender }) {
     return !isFirstRender && <p className="bg-slate-800 p-4 rounded">Hubo un error al responder. Vuelve a intentarlo.</p>;
 }
 
-export function Response({ isFirstRender, question, response }) {
+export function Response({ isFirstRender, question, response, error }) {
     const choice = response?.choices[0];
     let responseText = choice?.text;
 
-    return responseText ? <ResponseSection question={question} response={responseText} /> : <ResponseError isFirstRender={isFirstRender} />;
+    return responseText && error === null ? <ResponseSection question={question} response={responseText} /> : <ResponseError isFirstRender={isFirstRender} />;
 }
 
 export default Response;
