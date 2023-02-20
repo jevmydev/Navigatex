@@ -6,6 +6,10 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ["Inter", "sans-serif"]
+            },
+            screens: {
+                desk: "480px",
+                mb: "310px"
             }
         }
     },
