@@ -31,20 +31,3 @@ input[type="search"]::-ms-clear,
 input[type="search"]::-ms-reveal {
     display: none;
 }
-
-.input-degraded-pulse {
-    animation: input-degraded-pulse 2s linear infinite;
-}
-
-@keyframes input-degraded-pulse {
-    0%,
-    100% {
-        filter: hue-rotate(20deg) opacity(1);
-    }
-    50% {
-        filter: hue-rotate(20deg) opacity(0.5);
-    }
-    100% {
-        filter: hue-rotate(20deg);
-    }
-}
