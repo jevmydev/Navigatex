@@ -1,4 +1,4 @@
-# NavigateX 🌐
+# NavigateX 🌐🚀
 
 **Encuentra lo que necesitas** de la web rápidamente con NavigateX. Este **buscador** utiliza **inteligencia artificial** para brindar resultados para tus búsquedas.
 
