@@ -7,11 +7,11 @@ export function SearcherForm({ search, handleChange, handleSubmit }) {
         <form className="relative" autoComplete="off" onSubmit={handleSubmit}>
             <div>
                 <input
-                    className=" bg-slate-800 border border-slate-600 transition-colors outline-none rounded-full py-2 px-4 w-full placeholder:text-slate-400 focus:border-indigo-600"
+                    className="bg-slate-800 border border-slate-600 transition-colors outline-none rounded-full py-2 px-4 w-full placeholder:text-slate-400 focus:border-indigo-600"
                     name="search"
                     type="search"
                     autoFocus
-                    placeholder="Escribe lo que buscas y encuentra lo que necesites"
+                    placeholder="Escribe lo que buscas..."
                     onChange={handleChange}
                     value={search}
                 />
@@ -31,7 +31,7 @@ export function Searcher({ children }) {
             <div className="max-w-screen-sm mx-auto font-light flex flex-col justify-end items-center gap-8 h-96">
                 <div className="flex flex-col font-bold">
                     <h1 className="tracking-tighter text-indigo-600 text-5xl mb:text-6xl desk:text-8xl">NavigateX</h1>
-                    <h2 className="tracking-tighter">Navega la web con IA</h2>
+                    <h2 className="tracking-tighter text-white">Navega la web con IA</h2>
                 </div>
                 <div className="w-full">{children}</div>
                 <Blur />

@@ -3,11 +3,11 @@ import { Anchor } from "../elements/Anchor";
 export function ResponseArticle({ title, question, response, children }) {
     return (
         <div className="h-full flex flex-col gap-2 bg-slate-800 p-4 rounded">
-            <h2>
+            <h2 className="flex items-center gap-1">
                 {title}
                 <span className="tracking-tighter text-indigo-600 text-xl font-bold">{question}</span>
             </h2>
-            <p>{response}</p>
+            <p className="text-white">{response}</p>
             {children}
         </div>
     );
@@ -20,7 +20,7 @@ export function ResponseSection({ question, response }) {
                 <div className="flex flex-1 flex-col gap-2">
                     <ResponseArticle title="Respuesta para: " question={question} response={response} />
                 </div>
-                <div className="flex w-full md:w-80 flex-col gap-2">
+                <div className="flex w-full md:max-w-xs flex-col gap-2">
                     <ResponseArticle title="Otros recursos para: " question={question} response="Busca más en...">
                         <Anchor href={`https://www.google.com/search?q=${question}`} target="_blank">
                             Google

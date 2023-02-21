@@ -29,7 +29,7 @@ function App() {
         <>
             <Header />
             <main>
-                <div className="flex flex-col gap-32 px-4 max-w-screen-lg mx-auto">
+                <div className="flex flex-col gap-32 px-4 max-w-screen-lg min-h-screen mx-auto">
                     <Searcher>
                         <SearcherForm search={search} handleChange={handleChange} handleSubmit={handleSubmit} />
                     </Searcher>
