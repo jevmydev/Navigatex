@@ -1,5 +1,4 @@
-import { Button } from "../elements/Button";
-import { FavIcon, UserIcon, SettingIcon } from "../elements/Icons";
+import { FavIcon } from "../elements/Icons";
 
 export function Header() {
     return (
@@ -10,20 +9,20 @@ export function Header() {
                         <FavIcon />
                     </picture>
                 </a>
-                <nav>
+                {/* <nav>
                     <ul className="flex justify-between items-center gap-4">
-                        <li>
+                         <li>
                             <Button>
                                 <SettingIcon />
                             </Button>
                         </li>
                         <li>
-                            <Button>
+                            <Button onClick={() => {})}>
                                 <UserIcon />
                             </Button>
                         </li>
                     </ul>
-                </nav>
+                </nav> */}
             </div>
         </header>
     );
