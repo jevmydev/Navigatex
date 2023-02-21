@@ -4,12 +4,12 @@ export function Footer() {
     return (
         <footer className="bg-slate-800">
             <div className="max-w-screen-sm mx-auto mt-32 p-4 flex items-center gap-4 flex-col">
-                <div className="flex flex-col gap-4 md:flex-row">
+                <div className="flex flex-col w-full gap-4 md:flex-row">
                     <Anchor href="https://jeremydiaz.netlify.app/" target="_blank">
-                        Creado por jevmydev
+                        Creador
                     </Anchor>
                     <Anchor href="https://github.com/jevmydev/navigatex" target="_blank">
-                        Código abierto
+                        Código
                     </Anchor>
                 </div>
                 <div>
