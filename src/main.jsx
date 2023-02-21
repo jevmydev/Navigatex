@@ -5,4 +5,10 @@ import App from "./App";
 
 import "./main.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+import { UserProvider } from "./context/user";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <UserProvider>
+        <App />
+    </UserProvider>
+);
