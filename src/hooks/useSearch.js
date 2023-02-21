@@ -17,5 +17,5 @@ export function useSearch() {
         updateSearch({ search });
     };
 
-    return { search, searchSubmit, handleChange };
+    return { search, searchSubmit, updateSearch, handleChange };
 }
