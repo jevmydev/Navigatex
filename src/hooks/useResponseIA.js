@@ -7,14 +7,14 @@ export function useResponseIA({ search }) {
     const [loading, setLoading] = useState(false);
 
     const previusSearch = useRef(search);
-    const generateOtherResponse = useRef(false);
+    const regenerateResponseRef = useRef(false);
 
     const getResponse = useCallback(async ({ search }) => {
-        if ((search === previusSearch.current && generateOtherResponse.current === false) || search === "") return;
+        if ((search === previusSearch.current && regenerateResponseRef.current === false) || search === "") return;
 
         setLoading(true);
 
-        generateOtherResponse.current = false;
+        regenerateResponseRef.current = false;
         previusSearch.current = search;
 
         try {
@@ -32,7 +32,7 @@ export function useResponseIA({ search }) {
     }, []);
 
     const regenerateResponse = () => {
-        generateOtherResponse.current = true;
+        regenerateResponseRef.current = true;
         getResponse({ search });
     };
 

@@ -2,27 +2,27 @@ import { Button } from "../elements/Button";
 import { Blur } from "../elements/Blur";
 import { SendIcon, MicIcon, MicMuteIcon, CloseIcon } from "../elements/Icons";
 
-export function SearcherVoice({ searchVoice, isVoice, handleClickVoice, updateSearchVoice, toggleVoiceModal }) {
+export function SearcherVoice({ searchVoice, isSpeaking, handleClickSearchVoice, updateSearchVoice, setOpenVoiceModal }) {
     return (
         <div className="backdrop-blur-md fixed top-0 left-0 w-full h-full z-20 flex items-center justify-center">
             <div className="relative flex flex-col gap-4 justify-center items-center bg-slate-900 max-w-lg p-4 mx-4 rounded">
                 <div className="absolute top-4 right-4">
-                    <Button onClick={toggleVoiceModal}>
+                    <Button onClick={setOpenVoiceModal}>
                         <CloseIcon />
                     </Button>
                 </div>
                 <div className="mt-14">
-                    <Button className={isVoice ? "border-red-600" : ""} onClick={searchVoice ? handleClickVoice : updateSearchVoice}>
-                        {isVoice ? searchVoice ? <SendIcon width="w-32" height="h-10" /> : <MicIcon width="w-32" height="h-10" /> : <MicMuteIcon width="w-32" height="h-10" />}
+                    <Button classNameState={isSpeaking ? "border-red-600" : ""} onClick={searchVoice ? handleClickSearchVoice : updateSearchVoice}>
+                        {isSpeaking ? searchVoice ? <SendIcon width="w-32" height="h-10" /> : <MicIcon width="w-32" height="h-10" /> : <MicMuteIcon width="w-32" height="h-10" />}
                     </Button>
                 </div>
-                <div>{isVoice && <p>{searchVoice ? searchVoice : "Escuchando..."}</p>}</div>
+                <div>{isSpeaking && <p>{searchVoice ? searchVoice : "Escuchando..."}</p>}</div>
             </div>
         </div>
     );
 }
 
-export function SearcherForm({ search, handleChange, handleSubmit, regenerateResponse, toggleVoiceModal }) {
+export function SearcherForm({ search, handleChange, handleSubmit, regenerateResponse, setOpenVoiceModal }) {
     return (
         <form className="relative flex flex-col justify-center gap-4" autoComplete="off" onSubmit={handleSubmit}>
             <div>
@@ -42,7 +42,7 @@ export function SearcherForm({ search, handleChange, handleSubmit, regenerateRes
                 </Button>
             </div>
             <div className="flex items-center justify-center gap-4">
-                <Button onClick={toggleVoiceModal}>
+                <Button onClick={setOpenVoiceModal}>
                     <span className="inline-block sm:hidden">
                         <MicIcon />
                     </span>
