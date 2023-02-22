@@ -1,21 +1,18 @@
-import { useState } from "react";
 import { createContext } from "react";
 
-import { UserIcon } from "../elements/Icons";
+import { useUserReducer } from "../hooks/useUserReducer";
 
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
-    const [user, setUser] = useState({
-        name: "Guess",
-        icon: <UserIcon />
-    });
+    const { user, updateUser, clearUser } = useUserReducer();
 
     return (
         <UserContext.Provider
             value={{
                 user,
-                setUser
+                updateUser,
+                clearUser
             }}
         >
             {children}
