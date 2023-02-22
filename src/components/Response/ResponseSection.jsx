@@ -1,17 +1,6 @@
-import { Anchor } from "../elements/Anchor";
+import { Anchor } from "../../elements/Anchor";
 
-export function ResponseArticle({ title, question, response, children }) {
-    return (
-        <div className="h-full flex flex-col gap-2 bg-slate-800 p-4 rounded">
-            <h2 className="flex flex-col gap-1">
-                {title}
-                <span className="tracking-tighter text-indigo-600 text-xl font-bold">{question}</span>
-            </h2>
-            <p className="text-white">{response}</p>
-            {children}
-        </div>
-    );
-}
+import ResponseArticle from "./ResponseArticle";
 
 export function ResponseSection({ question, response }) {
     return (
@@ -38,15 +27,4 @@ export function ResponseSection({ question, response }) {
     );
 }
 
-export function ResponseError({ isFirstRender }) {
-    return !isFirstRender && <p className="bg-slate-800 p-4 rounded">Hubo un error al responder. Vuelve a intentarlo.</p>;
-}
-
-export function Response({ isFirstRender, question, response, error }) {
-    const choice = response?.choices[0];
-    let responseText = choice?.text;
-
-    return responseText && error === null ? <ResponseSection question={question} response={responseText} /> : <ResponseError isFirstRender={isFirstRender} />;
-}
-
-export default Response;
+export default ResponseSection;

@@ -1,4 +1,4 @@
-import { FavIcon } from "../elements/Icons";
+import { FavIcon } from "../../elements/Icons";
 
 export function Header() {
     return (
