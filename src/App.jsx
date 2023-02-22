@@ -13,23 +13,28 @@ import { useSearchVoice } from "./hooks/useSearchVoice";
 import { useResponseIA } from "./hooks/useResponseIA";
 
 function App() {
-    const { search, searchSubmit, handleChange } = useSearch();
-    const { searchVoice, isSpeaking, isOpenSearchVoice, setOpenVoiceModal, updateSearchVoice } = useSearchVoice();
+    const { search, searchSubmit, updateSearch, handleChange } = useSearch();
+    const { searchVoice, isSpeaking, isOpenSearchVoice, setOpenVoiceModal, resetSearchVoice, updateSearchVoice } = useSearchVoice();
     const { response, error, loading, regenerateResponse, getResponse } = useResponseIA({ search });
 
     const isFirstRender = useRef(true);
 
-    const handleSubmit = (e, searchVoice = null) => {
+    const handleSubmit = (e, searchVoice) => {
         e?.preventDefault();
-        if(searchVoice) setOpenVoiceModal();
+        const newSearch = searchVoice ?? search;
 
-        searchSubmit.current = searchVoice ?? search;
+        if (searchVoice) updateSearch({ search: newSearch });
+
+        searchSubmit.current = newSearch;
         isFirstRender.current = false;
 
-        getResponse({ search });
+        getResponse({ search: newSearch });
     };
 
-    const handleClickSearchVoice = () => handleSubmit(null, searchVoice);
+    const handleClickSearchVoice = () => {
+        handleSubmit(null, searchVoice);
+        resetSearchVoice();
+    };
 
     return (
         <>
@@ -39,7 +44,13 @@ function App() {
                     <Searcher>
                         <SearcherForm search={search} handleChange={handleChange} handleSubmit={handleSubmit} regenerateResponse={regenerateResponse} setOpenVoiceModal={setOpenVoiceModal} />
                         {isOpenSearchVoice && (
-                            <SearcherVoice searchVoice={searchVoice} isSpeaking={isSpeaking} handleClickSearchVoice={handleClickSearchVoice} updateSearchVoice={updateSearchVoice} setOpenVoiceModal={setOpenVoiceModal} />
+                            <SearcherVoice
+                                searchVoice={searchVoice}
+                                isSpeaking={isSpeaking}
+                                handleClickSearchVoice={handleClickSearchVoice}
+                                updateSearchVoice={updateSearchVoice}
+                                setOpenVoiceModal={setOpenVoiceModal}
+                            />
                         )}
                     </Searcher>
                     {loading ? <Loading /> : <Response isFirstRender={isFirstRender.current} question={searchSubmit.current} response={response} error={error} />}

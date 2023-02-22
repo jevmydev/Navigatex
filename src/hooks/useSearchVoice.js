@@ -1,11 +1,17 @@
 import { useState } from "react";
 
 export function useSearchVoice() {
-    const [searchVoice, setSearchVoice] = useState(null);
-    const [isOpenSearchVoice, seIsOpenSearchVoice] = useState(false);
+    const [searchVoice, setSearchVoice] = useState("");
+    const [isOpenSearchVoice, setIsOpenSearchVoice] = useState(false);
     const [isSpeaking, setIsSpeaking] = useState(false);
 
-    const setOpenVoiceModal = () => seIsOpenSearchVoice(!isOpenSearchVoice);
+    const setOpenVoiceModal = () => setIsOpenSearchVoice(!isOpenSearchVoice);
+
+    const resetSearchVoice = () => {
+        setSearchVoice("");
+        setIsOpenSearchVoice(false);
+        setIsSpeaking(false);
+    };
 
     const updateSearchVoice = () => {
         const recognition = new window.webkitSpeechRecognition();
@@ -31,5 +37,5 @@ export function useSearchVoice() {
         recognition.start();
     };
 
-    return { searchVoice, isSpeaking, isOpenSearchVoice, setOpenVoiceModal, updateSearchVoice };
+    return { searchVoice, isSpeaking, isOpenSearchVoice, setOpenVoiceModal, resetSearchVoice, updateSearchVoice };
 }
