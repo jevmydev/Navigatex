@@ -1,10 +1,11 @@
 import { useRef } from "react";
 
-import Header from "./components/Header";
-import Searcher from "./components/Searcher";
-import { SearcherForm, SearcherVoice } from "./components/Searcher";
-import Response from "./components/Response";
-import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+import Searcher from "./components/Searcher/Searcher";
+import SearcherForm from "./components/Searcher/SearcherForm";
+import SearcherVoice from "./components/Searcher/SearcherVoice";
+import Response from "./components/Response/Response";
+import Footer from "./components/Footer/Footer";
 
 import { Loading } from "./elements/Loading";
 
