@@ -1,7 +1,7 @@
 import HeaderUser from "./HeaderUser";
 
 import { Button } from "../../elements/Button";
-import { FavIcon } from "../../elements/Icons";
+import { FavIcon, UserIcon } from "../../elements/Icons";
 import { useState } from "react";
 
 import { useUser } from "../../hooks/useUser";
@@ -27,7 +27,11 @@ export function Header() {
                         </li> */}
                         <li>
                             <Button onClick={() => setOpenUser(!openUser)}>
-                                <img className="w-8 h-8 object-cover aspect-square rounded-full" src={user.icon} alt={`Tu nombre de usuario es ${name}`} loading="lazy" decoding="async" />
+                                {user.icon === "./favicon.ico" ? (
+                                    <UserIcon />
+                                ) : (
+                                    <img className="w-8 h-8 object-cover aspect-square rounded-full" src={user.icon} alt={`Tu nombre de usuario es ${name}`} loading="lazy" decoding="async" />
+                                )}
                             </Button>
                         </li>
                     </ul>

@@ -5,8 +5,6 @@ import { UserIcon, WriteIcon } from "../../elements/Icons";
 
 import { useUser } from "../../hooks/useUser";
 
-import { setStorage } from "../../storage/localStorage";
-
 export function HeaderUser() {
     const inputFileIconId = useId();
     const inputTextNameId = useId();
@@ -23,7 +21,6 @@ export function HeaderUser() {
             const newUser = structuredClone(user);
             newUser.icon = result;
 
-            setStorage({ key: "user", value: newUser });
             updateUser({ user: newUser });
         };
     };
@@ -46,7 +43,6 @@ export function HeaderUser() {
         const newUser = structuredClone(user);
         newUser.name = userName;
 
-        setStorage({ key: "user", value: newUser });
         updateUser({ user: newUser });
     };
 
