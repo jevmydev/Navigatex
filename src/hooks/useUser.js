@@ -1,18 +1,10 @@
 import { useContext } from "react";
+
 import { UserContext } from "../context/user";
 
-import { UserIcon } from "../elements/Icons";
-
 export function useUser() {
-    const { user, setUser } = useContext(UserContext);
+    const userContext = useContext(UserContext);
+    if (userContext === undefined) throw new Error("useUser no tiene acceso a UserProvider");
 
-    const updateUser = ({ name, icon }) => {
-        const newUser = structuredClone(user);
-        newUser.name = name || "Guess";
-        newUser.icon = icon || <UserIcon />;
-
-        setUser(newUser);
-    };
-
-    return { user, updateUser };
+    return userContext;
 }
