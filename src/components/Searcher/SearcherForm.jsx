@@ -3,7 +3,7 @@ import { SendIcon, MicIcon } from "../../elements/Icons";
 
 export function SearcherForm({ search, handleChange, handleSubmit, regenerateResponse, setOpenVoiceModal }) {
     return (
-        <form className="relative flex flex-col justify-center gap-4" autoComplete="off" onSubmit={handleSubmit}>
+        <form className="relative flex flex-col justify-center gap-4" autoComplete="on" onSubmit={handleSubmit}>
             <div>
                 <input
                     className="bg-slate-800 border border-slate-600 transition-colors outline-none rounded-full py-2 px-4 w-full placeholder:text-slate-400 focus:border-indigo-600"
