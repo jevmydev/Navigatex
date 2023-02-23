@@ -20,11 +20,6 @@ export function Header() {
                 </a>
                 <nav>
                     <ul className="flex justify-between items-center gap-4">
-                        {/* <li>
-                            <Button>
-                                <SettingIcon />
-                            </Button>
-                        </li> */}
                         <li>
                             <Button onClick={() => setOpenUser(!openUser)}>
                                 {user.icon === "./favicon.ico" ? (
