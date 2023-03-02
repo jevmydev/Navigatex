@@ -3,7 +3,7 @@ import ResponseError from "./ResponseError";
 
 export function Response({ isFirstRender, question, response, error }) {
     const choice = response?.choices[0];
-    let responseText = choice?.text;
+    let responseText = choice?.message?.content;
 
     return responseText && error === null ? <ResponseSection question={question} response={responseText} /> : <ResponseError isFirstRender={isFirstRender} />;
 }

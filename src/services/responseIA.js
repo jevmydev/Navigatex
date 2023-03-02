@@ -1,4 +1,4 @@
-const OPENAI_URL = "https://api.openai.com/v1/completions";
+const OPENAI_URL = "https://api.openai.com/v1/chat/completions";
 const OPENAI_OPTIONS = ({ search }) => ({
     method: "POST",
     headers: {
@@ -6,8 +6,8 @@ const OPENAI_OPTIONS = ({ search }) => ({
         Authorization: `Bearer ${import.meta.env.VITE_OPENAI_APIKEY}`
     },
     body: JSON.stringify({
-        model: "text-davinci-003",
-        prompt: `Tienes que responder a un prompt de un usuario: \nEste es el prompt: ${search}`,
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: search }],
         temperature: 0.7,
         max_tokens: 256
     })
